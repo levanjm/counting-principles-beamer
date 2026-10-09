@@ -1,0 +1,227 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+% Color scheme: Maroon, Black, and White
+\definecolor{maroon}{rgb}{0.5, 0, 0}
+\definecolor{darkmaroon}{rgb}{0.3, 0, 0}
+
+\usetheme{default}
+\usecolortheme{default}
+
+% Customize colors
+\setbeamercolor{structure}{fg=maroon}
+\setbeamercolor{frametitle}{bg=darkmaroon, fg=white}
+\setbeamercolor{title}{fg=maroon}
+\setbeamercolor{itemize item}{fg=maroon}
+\setbeamercolor{itemize subitem}{fg=maroon}
+\setbeamercolor{button}{bg=maroon, fg=white}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{title page header}{fg=darkmaroon}
+
+\title{Solutions: Proof by Cases}
+\subtitle{Practice Problem Solutions}
+\author{Proof Techniques}
+\date{\today}
+
+\begin{document}
+
+% ==================== TITLE ====================
+\frame{\titlepage}
+
+% ==================== SLIDE 1: Problem 1 Statement ====================
+\begin{frame}
+  \frametitle{Problem 1: Sum of Even and Odd}
+
+  {\color{maroon}\textbf{Problem:}} Prove: for every integer $n$, $n^2 + n$ is even.
+
+  \vspace{0.3cm}
+  {\color{maroon}\textbf{Approach:}} The expression $n^2 + n = n(n+1)$ is the product of two consecutive integers. One of them must be even, so the product is even. 
+  
+  But let's prove this using cases on the parity of $n$.
+\end{frame}
+
+% ==================== SLIDE 2: Problem 1 Solution ====================
+\begin{frame}
+  \frametitle{Problem 1: Solution}
+
+  {\color{maroon}\textbf{Proposition:}} For every integer $n$, $n^2 + n$ is even.
+
+  \vspace{0.2cm}
+  {\color{darkmaroon}\textbf{Proof.}} Suppose $n \in \mathbb{Z}$. Then $n$ is even or odd.
+
+  \vspace{0.2cm}
+  \textbf{Case 1: $n$ is even.} Then $n = 2a$ for some $a \in \mathbb{Z}$. So:
+  $$n^2 + n = (2a)^2 + 2a = 4a^2 + 2a = 2(2a^2 + a)$$
+  
+  Since $2a^2 + a \in \mathbb{Z}$, we have $n^2 + n = 2b$ for some integer $b$, so $n^2 + n$ is even.
+
+  \vspace{0.3cm}
+  \textbf{Case 2: $n$ is odd.} Then $n = 2a + 1$ for some $a \in \mathbb{Z}$. So:
+  \begin{align*}
+    n^2 + n &= (2a+1)^2 + (2a+1) \\
+    &= 4a^2 + 4a + 1 + 2a + 1 \\
+    &= 4a^2 + 6a + 2 = 2(2a^2 + 3a + 1)
+  \end{align*}
+
+  Since $2a^2 + 3a + 1 \in \mathbb{Z}$, we have $n^2 + n$ is even.
+
+  \vspace{0.2cm}
+  In either case, $n^2 + n$ is even. \hfill $\blacksquare$
+\end{frame}
+
+% ==================== SLIDE 3: Problem 2 Statement ====================
+\begin{frame}
+  \frametitle{Problem 2: Remainders Modulo 4}
+
+  {\color{maroon}\textbf{Problem:}} Prove: if $n \in \mathbb{Z}$, then $n^2$ has remainder 0 or 1 when divided by 4.
+
+  \vspace{0.3cm}
+  {\color{maroon}\textbf{Approach:}} Every integer has remainder 0, 1, 2, or 3 when divided by 4. We check $n^2$ in each case.
+\end{frame}
+
+% ==================== SLIDE 4: Problem 2 Solution ====================
+\begin{frame}
+  \frametitle{Problem 2: Solution}
+
+  {\color{darkmaroon}\textbf{Proposition:}} If $n \in \mathbb{Z}$, then $n^2$ has remainder 0 or 1 when divided by 4.
+
+  \vspace{0.2cm}
+  {\color{darkmaroon}\textbf{Proof.}} By the division algorithm, $n = 4q + r$ where $r \in \{0, 1, 2, 3\}$.
+
+  \vspace{0.2cm}
+  \textbf{Case 1: $r = 0$.} $n = 4q$, so $n^2 = 16q^2 = 4(4q^2)$. Remainder is 0. ✓
+
+  \textbf{Case 2: $r = 1$.} $n = 4q + 1$, so $n^2 = (4q+1)^2 = 16q^2 + 8q + 1 = 4(4q^2+2q) + 1$. Remainder is 1. ✓
+
+  \textbf{Case 3: $r = 2$.} $n = 4q + 2$, so:
+  $$n^2 = (4q+2)^2 = 16q^2 + 16q + 4 = 4(4q^2 + 4q + 1)$$
+  Remainder is 0. ✓
+
+  \textbf{Case 4: $r = 3$.} $n = 4q + 3$, so:
+  $$n^2 = (4q+3)^2 = 16q^2 + 24q + 9 = 16q^2 + 24q + 8 + 1 = 4(4q^2+6q+2) + 1$$
+  Remainder is 1. ✓
+
+  In all cases, $n^2$ has remainder 0 or 1 when divided by 4. \hfill $\blacksquare$
+\end{frame}
+
+% ==================== SLIDE 5: Problem 3 Statement ====================
+\begin{frame}
+  \frametitle{Problem 3: Sum of Same Parity}
+
+  {\color{maroon}\textbf{Problem:}} Prove: if two integers have the same parity, then their sum is even.
+
+  \vspace{0.3cm}
+  {\color{maroon}\textbf{Approach:}} Same parity means both even or both odd. Check each case.
+\end{frame}
+
+% ==================== SLIDE 6: Problem 3 Solution ====================
+\begin{frame}
+  \frametitle{Problem 3: Solution}
+
+  {\color{darkmaroon}\textbf{Proposition:}} If two integers have the same parity, then their sum is even.
+
+  \vspace{0.2cm}
+  {\color{darkmaroon}\textbf{Proof.}} Suppose $m$ and $n$ are integers with the same parity.
+
+  \vspace{0.2cm}
+  \textbf{Case 1: Both even.} Then $m = 2a$ and $n = 2b$ for some $a, b \in \mathbb{Z}$. So:
+  $$m + n = 2a + 2b = 2(a + b)$$
+
+  Since $a + b \in \mathbb{Z}$, we have $m + n$ is even.
+
+  \vspace{0.3cm}
+  \textbf{Case 2: Both odd.} Then $m = 2a + 1$ and $n = 2b + 1$ for some $a, b \in \mathbb{Z}$. So:
+  $$m + n = (2a + 1) + (2b + 1) = 2a + 2b + 2 = 2(a + b + 1)$$
+
+  Since $a + b + 1 \in \mathbb{Z}$, we have $m + n$ is even.
+
+  \vspace{0.2cm}
+  In either case, $m + n$ is even. \hfill $\blacksquare$
+\end{frame}
+
+% ==================== SLIDE 7: Problem 4 Statement ====================
+\begin{frame}
+  \frametitle{Problem 4: Absolute Value and Products}
+
+  {\color{maroon}\textbf{Problem:}} Prove: for all real $x, y$, $\;|xy| = |x| \cdot |y|$.
+
+  \vspace{0.3cm}
+  {\color{maroon}\textbf{Approach:}} Use cases on the signs of $x$ and $y$ to evaluate both sides.
+\end{frame}
+
+% ==================== SLIDE 8: Problem 4 Solution Part 1 ====================
+\begin{frame}
+  \frametitle{Problem 4: Solution (Part 1)}
+
+  {\color{darkmaroon}\textbf{Proposition:}} For all real $x, y$, $\;|xy| = |x| \cdot |y|$.
+
+  \vspace{0.2cm}
+  {\color{darkmaroon}\textbf{Proof.}} Suppose $x, y \in \mathbb{R}$. We consider four cases based on the signs of $x$ and $y$.
+
+  \vspace{0.2cm}
+  \textbf{Case 1: $x \geq 0$ and $y \geq 0$.} Then $|x| = x$, $|y| = y$, and $xy \geq 0$, so $|xy| = xy$. Thus:
+  $$|xy| = xy = |x| \cdot |y|$$ ✓
+
+  \vspace{0.2cm}
+  \textbf{Case 2: $x \geq 0$ and $y < 0$.} Then $|x| = x$, $|y| = -y$, and $xy < 0$, so $|xy| = -xy$. Thus:
+  $$|xy| = -xy = x(-y) = |x| \cdot |y|$$ ✓
+\end{frame}
+
+% ==================== SLIDE 9: Problem 4 Solution Part 2 ====================
+\begin{frame}
+  \frametitle{Problem 4: Solution (Part 2)}
+
+  \textbf{Case 3: $x < 0$ and $y \geq 0$.} Then $|x| = -x$, $|y| = y$, and $xy < 0$, so $|xy| = -xy$. Thus:
+  $$|xy| = -xy = (-x)y = |x| \cdot |y|$$ ✓
+
+  \vspace{0.3cm}
+  \textbf{Case 4: $x < 0$ and $y < 0$.} Then $|x| = -x$, $|y| = -y$, and $xy > 0$, so $|xy| = xy$. Thus:
+  $$|xy| = xy = (-x)(-y) = |x| \cdot |y|$$ ✓
+
+  \vspace{0.3cm}
+  In all cases, $|xy| = |x| \cdot |y|$. \hfill $\blacksquare$
+\end{frame}
+
+% ==================== SLIDE 10: Key Insights ====================
+\begin{frame}
+  \frametitle{Key Insights from These Solutions}
+
+  \begin{itemize}
+    \item {\color{maroon}\textbf{Problem 1:}} Sometimes you can simplify first ($n(n+1)$), but case analysis still works.
+    
+    \item {\color{maroon}\textbf{Problem 2:}} When dividing by $m$, use cases $r = 0, 1, \ldots, m-1$. This is systematic and exhaustive.
+    
+    \item {\color{maroon}\textbf{Problem 3:}} For ``both even or both odd,'' write both cases explicitly. The structure is clear.
+    
+    \item {\color{maroon}\textbf{Problem 4:}} With absolute values, cases on the signs of all variables is natural. Use the definition directly: $|a| = a$ if $a \geq 0$, else $|a| = -a$.
+  \end{itemize}
+
+  \vspace{0.3cm}
+  {\color{darkmaroon}\textbf{Overall lesson:}} Case proofs require checking \textbf{every} case. Forgetting even one case means the proof is incomplete.
+\end{frame}
+
+% ==================== SLIDE 11: Final Checklist ====================
+\begin{frame}
+  \frametitle{Before You Claim a Proof by Cases is Done}
+
+  \begin{enumerate}
+    \item {\color{maroon}\textbf{Exhaustive?}} Do your cases cover \textbf{all} possibilities? (List them: even/odd, $> 0 / = 0 / < 0$, etc.)
+    
+    \item {\color{maroon}\textbf{Disjoint?}} Do cases overlap? (Overlap is OK as long as the conclusion holds in each.)
+    
+    \item {\color{maroon}\textbf{Proved in each?}} Did you actually show the desired statement $Q$ in \textbf{every} case?
+    
+    \item {\color{maroon}\textbf{Used definitions?}} Did you apply definitions (even, odd, divisible, etc.) correctly?
+    
+    \item {\color{maroon}\textbf{Tested small values?}} Compute examples ($n = 0, 1, 2, -1, \ldots$) to catch errors before writing the proof.
+  \end{enumerate}
+
+  \vspace{0.3cm}
+  If all answers are ``yes,'' your proof is solid!
+\end{frame}
+
+\end{document}
